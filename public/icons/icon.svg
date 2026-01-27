@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="64" fill="#002b47"/>
+  <g transform="translate(256, 256)">
+    <!-- Shield/Crown shape for BHV -->
+    <path d="M0 -160 L120 -80 L120 60 Q120 140 0 180 Q-120 140 -120 60 L-120 -80 Z" fill="#ffffff" opacity="0.95"/>
+    <!-- Cross symbol for first aid/BHV -->
+    <rect x="-25" y="-100" width="50" height="140" rx="8" fill="#002b47"/>
+    <rect x="-70" y="-55" width="140" height="50" rx="8" fill="#002b47"/>
+    <!-- Crown on top -->
+    <path d="M-60 -140 L-40 -180 L0 -150 L40 -180 L60 -140" stroke="#fbbf24" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="-40" cy="-180" r="8" fill="#fbbf24"/>
+    <circle cx="0" cy="-150" r="8" fill="#fbbf24"/>
+    <circle cx="40" cy="-180" r="8" fill="#fbbf24"/>
+  </g>
+</svg>

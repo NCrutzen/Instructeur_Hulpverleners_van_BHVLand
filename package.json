@@ -1,0 +1,25 @@
+{
+  "name": "de-hulpverleners-van-bhv-land-dashboard",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "generate-icons": "node scripts/generate-icons.js"
+  },
+  "dependencies": {
+    "lucide-react": "^0.555.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "sharp": "^0.33.0",
+    "terser": "^5.46.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}
