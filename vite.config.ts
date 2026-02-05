@@ -6,7 +6,7 @@ export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
       // Base URL for GitHub Pages - repository name
-      base: '/Hulpverleners_van_BHVLand/',
+      base: '/Instructeur_Hulpverleners_van_BHVLand/',
       server: {
         port: 3000,
         host: '0.0.0.0',

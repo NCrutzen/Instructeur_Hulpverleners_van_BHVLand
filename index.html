@@ -21,7 +21,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16x16.png">
     <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
-    <!-- Arvo is een uitstekend Slab Serif alternatief voor Rockwell, Open Sans voor de rest -->
+
+    <!-- Google Fonts: Arvo (Rockwell alternative) & Open Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
@@ -35,11 +36,24 @@
               sans: ['"Open Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
             },
             colors: {
+              team: {
+                red: '#e73546',
+                green: '#63b986',
+                yellow: '#e4e022',
+                orange: '#f28b39',
+              },
+              res: {
+                samenwerking: '#c89b6c',
+                kennis: '#88be43',
+                besluitkracht: '#ae77af',
+                tijd: '#2fb7c2',
+                materiaal: '#3e67af',
+              },
               catan: {
                 red: '#ee3244',
                 green: '#10b981',
                 yellow: '#e7e514',
-                orange: '#f97316', 
+                orange: '#f97316',
                 navy: '#002b47',
                 bg: '#f0f4f8'
               }
@@ -59,14 +73,25 @@
         width: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #f1f1f1; 
+        background: #f1f1f1;
       }
       ::-webkit-scrollbar-thumb {
-        background: #cbd5e1; 
+        background: #cbd5e1;
         border-radius: 4px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #94a3b8; 
+        background: #94a3b8;
+      }
+      .hexagon {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      }
+      /* Ensure Rockwell-style titles */
+      h1, h2, h3, h4, .font-serif {
+        font-family: 'Arvo', serif;
+      }
+      /* Touch-friendly styles for Android tablets */
+      button, [role="button"], input, select {
+        touch-action: manipulation;
       }
     </style>
   <script type="importmap">
@@ -85,7 +110,7 @@
     <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 
-  <!-- Service Worker Registration -->
+  <!-- Service Worker Registration for PWA -->
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
