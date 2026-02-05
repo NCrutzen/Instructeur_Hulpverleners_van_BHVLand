@@ -1,171 +1,190 @@
 
 import React from 'react';
-import { TeamState, DoorState } from '../types';
-import { TEAMS, DOOR_POINTS, SKILLS, QUESTIONS } from '../constants';
-import { Trophy, Route, DoorOpen, Star, CheckCircle2, Shield, BookOpen, AlertTriangle, Flame } from 'lucide-react';
+import { TeamState } from '../types';
+import { TEAMS } from '../constants';
+import { Trophy, Route, DoorOpen, ShieldCheck, Crown, Award, Medal } from 'lucide-react';
 
 interface Props {
   teams: TeamState[];
 }
 
-const calculateDoorPoints = (doors: DoorState) => {
-  return doors.count * DOOR_POINTS;
-};
-
 const Leaderboard: React.FC<Props> = ({ teams }) => {
   if (teams.length === 0) return null;
 
-  const activeRouteLengths = teams.map(t => t.routeLength);
-  const maxRoute = Math.max(...activeRouteLengths);
-  const minRoute = Math.min(...activeRouteLengths);
-
-  const activeDoorPoints = teams.map(t => calculateDoorPoints(t.doors));
-  const maxDoorPoints = Math.max(...activeDoorPoints);
-  const minDoorPoints = Math.min(...activeDoorPoints);
-
-  const activeExtinguishers = teams.map(t => t.fireExtinguishers);
-  const maxExtinguishers = Math.max(...activeExtinguishers);
-  const minExtinguishers = Math.min(...activeExtinguishers);
+  // Bepaal de maxima voor de bonussen
+  const maxRoute = Math.max(...teams.map(t => t.routeLength));
+  const maxDoors = Math.max(...teams.map(t => t.doorCount));
 
   const teamsWithScores = teams.map(team => {
-    let score = 0;
+    // Punten per brandblusser (3pt elk)
+    const extinguisherPoints = team.extinguisherCount * 3;
 
-    // Skill counts only as finished if all 3 students have it
-    const skillCount = (Object.values(team.completedSkills) as boolean[][]).filter(s => s.every(v => v === true)).length;
+    // Bonus Punten (Titels)
+    const hasLongestRoute = team.routeLength > 0 && team.routeLength === maxRoute; 
+    const hasMostDoors = team.doorCount > 0 && team.doorCount === maxDoors;
 
-    const doorPoints = calculateDoorPoints(team.doors);
-
-    // 1. Minimaal 5 vaardigheden = 2 punten
-    const hasBaseSkills = skillCount >= 5;
-
-    // 2. Incidenten = 0 punten (verwijderd op verzoek)
-    const incidentPoints = 0;
-
-    // 3. Bonus: Langste route = 2 punten
-    const hasLongestRoute = teams.length > 1
-      ? (maxRoute > minRoute && team.routeLength === maxRoute)
-      : (team.routeLength > 2);
-
-    // 4. Bonus: Meeste deuren = 2 punten
-    const hasBestDoors = teams.length > 1
-      ? (maxDoorPoints > minDoorPoints && doorPoints === maxDoorPoints)
-      : (doorPoints > 2);
-
-    // 5. Bonus: Meeste brandblussers = 3 punten
-    const hasMostExtinguishers = teams.length > 1
-      ? (maxExtinguishers > minExtinguishers && team.fireExtinguishers === maxExtinguishers)
-      : (team.fireExtinguishers > 0);
-
-    // Score berekening
-    if (hasBaseSkills) score += 2;
-    if (hasLongestRoute) score += 2;
-    if (hasBestDoors) score += 2;
-    if (hasMostExtinguishers) score += 3;
-    score += incidentPoints;
+    let totalScore = extinguisherPoints;
+    if (hasLongestRoute) totalScore += 2;      // Langste vluchtroute = 2pt
+    if (hasMostDoors) totalScore += 2;         // Meeste deuren = 2pt
 
     return {
       ...team,
-      skillCount,
-      score,
-      bonus: {
-        longestRoute: hasLongestRoute,
-        bestDoors: hasBestDoors,
-        baseSkills: hasBaseSkills,
-        mostExtinguishers: hasMostExtinguishers
+      score: totalScore,
+      stats: {
+        hasLongestRoute,
+        hasMostDoors,
+        extinguisherPoints
       }
     };
   }).sort((a, b) => b.score - a.score);
 
+  const highestScore = teamsWithScores[0].score;
+
   return (
-    <div className="bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden font-sans">
-      {/* Compact header for tablet */}
-      <div className="px-3 py-2 text-white flex items-center justify-between" style={{ backgroundColor: '#002b47' }}>
-        <div className="flex items-center gap-2">
-          <Trophy className="text-yellow-400" size={20} />
-          <h2 className="text-base font-rockwell font-black uppercase tracking-tight">Klassement</h2>
+    <div className="mb-12">
+      {/* Klassement Header */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div className="flex items-center gap-4">
+          <div className="p-3 bg-gradient-to-br from-indigo-600 to-violet-700 rounded-2xl text-white shadow-xl shadow-indigo-200">
+              <Trophy size={32} />
+          </div>
+          <div>
+              <h2 className="text-3xl font-black text-slate-800 uppercase tracking-tighter leading-none font-serif">Klassement</h2>
+              <p className="text-sm font-bold text-slate-400 uppercase mt-1">Strijd om de veiligheid</p>
+          </div>
         </div>
-        <span className="text-[9px] opacity-60 italic">Blussers: 3pt | Route/Deur: 2pt | 5+ Vaardigh: 2pt</span>
+        
+        {/* Puntentelling Legenda */}
+        <div className="flex flex-wrap gap-2">
+            <div className="px-3 py-1.5 bg-white border border-slate-200 rounded-xl shadow-sm flex items-center gap-2">
+                <ShieldCheck size={14} className="text-red-500" />
+                <span className="text-[10px] font-black uppercase text-slate-600">Blusser: 3pt per stuk</span>
+            </div>
+            <div className="px-3 py-1.5 bg-white border border-slate-200 rounded-xl shadow-sm flex items-center gap-2">
+                <Medal size={14} className="text-orange-500" />
+                <span className="text-[10px] font-black uppercase text-slate-600">Langste Route: +2pt</span>
+            </div>
+            <div className="px-3 py-1.5 bg-white border border-slate-200 rounded-xl shadow-sm flex items-center gap-2">
+                <Medal size={14} className="text-blue-500" />
+                <span className="text-[10px] font-black uppercase text-slate-600">Meeste Deuren: +2pt</span>
+            </div>
+        </div>
       </div>
 
-      {/* Compact table for tablet landscape */}
-      <div className="overflow-x-auto">
-        <table className="w-full text-left border-collapse text-sm">
-          <thead>
-            <tr className="bg-slate-50 border-b border-slate-100">
-              <th className="px-2 py-2 text-[9px] font-black uppercase text-slate-400 w-12">#</th>
-              <th className="px-2 py-2 text-[9px] font-black uppercase text-slate-400">Team</th>
-              <th className="px-2 py-2 text-[9px] font-black uppercase text-slate-400 text-center">Vaard.</th>
-              <th className="px-2 py-2 text-[9px] font-black uppercase text-slate-400 text-center">Vragen</th>
-              <th className="px-2 py-2 text-[9px] font-black uppercase text-slate-400 text-center">Inc.</th>
-              <th className="px-2 py-2 text-[9px] font-black uppercase text-slate-400">Bonussen</th>
-              <th className="px-2 py-2 text-[9px] font-black uppercase text-slate-400 text-right">Score</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-slate-50">
-            {teamsWithScores.map((team, idx) => {
-              const teamConfig = TEAMS[team.color];
-              return (
-                <tr key={team.color} className="hover:bg-slate-50 transition-colors">
-                  <td className="px-2 py-2">
-                    <div className={`w-6 h-6 rounded-full flex items-center justify-center font-black text-xs ${
-                      idx === 0 ? 'bg-yellow-400 text-yellow-900' :
-                      idx === 1 ? 'bg-slate-300 text-slate-700' :
-                      idx === 2 ? 'bg-orange-300 text-orange-900' : 'bg-slate-100 text-slate-500'
-                    }`}>
-                      {idx + 1}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {teamsWithScores.map((team, index) => {
+          const config = TEAMS[team.color];
+          const isLeader = team.score === highestScore && team.score > 0;
+
+          return (
+            <div 
+              key={team.color}
+              className={`group relative flex flex-col bg-white rounded-3xl transition-all duration-500 shadow-lg ${
+                isLeader 
+                ? 'ring-4 ring-yellow-400 border-transparent scale-105 z-10' 
+                : 'border border-slate-200 hover:border-slate-300'
+              }`}
+            >
+                {/* Ranking Badge */}
+                <div className="absolute -top-3 -left-3 w-10 h-10 bg-slate-900 text-white rounded-xl flex items-center justify-center font-black text-lg shadow-lg z-20 font-serif">
+                    {index + 1}
+                </div>
+
+                {/* Team Header */}
+                <div 
+                  style={{ backgroundColor: config.hex }} 
+                  className="h-28 relative overflow-hidden rounded-t-[22px]"
+                >
+                    <div className="absolute inset-0 bg-black/5"></div>
+                    <div className="absolute -bottom-4 -right-4 opacity-10 group-hover:scale-110 transition-transform duration-700">
+                        <Award size={120} className={config.textColor} />
                     </div>
-                  </td>
-                  <td className="px-2 py-2">
-                    <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 rounded-full shrink-0" style={{ backgroundColor: teamConfig.hex }}></div>
-                      <span className="font-rockwell font-black text-slate-800 uppercase text-sm">{teamConfig.name}</span>
+                    
+                    <div className="relative z-10 p-5 flex justify-between items-center h-full">
+                        <div className="flex flex-col">
+                            <h3 className={`text-2xl font-black uppercase tracking-tighter font-serif ${config.textColor}`}>
+                                {config.name}
+                            </h3>
+                            {isLeader && (
+                                <div className={`flex items-center gap-1 mt-1 font-black text-[10px] uppercase ${config.textColor} opacity-90`}>
+                                    <Crown size={12} fill="currentColor" /> Huidige Winnaar
+                                </div>
+                            )}
+                        </div>
+                        
+                        <div className="flex flex-col items-center justify-center w-16 h-16 bg-white rounded-2xl shadow-xl ring-4 ring-black/5">
+                            <span className="text-2xl font-black text-slate-900 leading-none font-serif">{team.score}</span>
+                            <span className="text-[8px] font-black text-slate-400 uppercase mt-1">Punten</span>
+                        </div>
                     </div>
-                  </td>
-                  <td className="px-2 py-2 text-center">
-                    <span className={`font-bold ${team.bonus.baseSkills ? 'text-green-600' : 'text-slate-700'}`}>
-                      {team.skillCount}
-                    </span>
-                    <span className="text-[9px] text-slate-400">/{SKILLS.length}</span>
-                  </td>
-                  <td className="px-2 py-2 text-center">
-                    <span className="font-bold text-slate-700">{team.answeredQuestions.length}</span>
-                  </td>
-                  <td className="px-2 py-2 text-center">
-                    <span className="font-bold text-slate-400">{team.incidentCount}</span>
-                  </td>
-                  <td className="px-2 py-2">
-                    <div className="flex gap-1">
-                      {team.bonus.longestRoute && (
-                        <div className="p-1 rounded bg-orange-100 text-orange-600" title="Langste Vluchtroute (+2pt)">
-                          <Route size={14} />
+                </div>
+
+                {/* Titels & Bonussen */}
+                <div className="p-5 flex-1 flex flex-col gap-4">
+                    <div className="flex flex-col gap-2.5">
+                        <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest text-center mb-1">Status & Titels</p>
+                        
+                        {/* Brandblusser Points */}
+                        <div className="flex items-center justify-between px-4 py-3 rounded-2xl border bg-slate-50 border-transparent text-slate-700">
+                            <div className="flex items-center gap-3">
+                                <ShieldCheck size={18} className="text-red-500" />
+                                <span className="text-[11px] font-black uppercase">{team.extinguisherCount}x Brandblusser</span>
+                            </div>
+                            <span className="font-black text-sm">+{team.stats.extinguisherPoints}</span>
                         </div>
-                      )}
-                      {team.bonus.bestDoors && (
-                        <div className="p-1 rounded bg-blue-100 text-blue-600" title="Meeste Deuren (+2pt)">
-                          <DoorOpen size={14} />
+
+                        {/* Langste Route Bonus */}
+                        <div className={`flex items-center justify-between px-4 py-3 rounded-2xl border transition-all ${
+                            team.stats.hasLongestRoute 
+                            ? 'bg-orange-50 border-orange-200 text-orange-800 shadow-sm' 
+                            : 'bg-slate-50 border-transparent text-slate-300'
+                        }`}>
+                            <div className="flex items-center gap-3">
+                                <Route size={18} className={team.stats.hasLongestRoute ? 'text-orange-500' : 'text-slate-200'} />
+                                <span className="text-[11px] font-black uppercase">Langste Route</span>
+                            </div>
+                            {team.stats.hasLongestRoute ? (
+                                <span className="font-black text-sm">+2</span>
+                            ) : (
+                                <span className="text-[10px] font-bold opacity-0 group-hover:opacity-100 transition-opacity">
+                                    {team.routeLength}m
+                                </span>
+                            )}
                         </div>
-                      )}
-                      {team.bonus.baseSkills && (
-                        <div className="p-1 rounded bg-green-100 text-green-600" title="Minimaal 5 vaardigheden (+2pt)">
-                          <Shield size={14} />
+
+                        {/* Meeste Deuren Bonus */}
+                        <div className={`flex items-center justify-between px-4 py-3 rounded-2xl border transition-all ${
+                            team.stats.hasMostDoors 
+                            ? 'bg-blue-50 border-blue-200 text-blue-800 shadow-sm' 
+                            : 'bg-slate-50 border-transparent text-slate-300'
+                        }`}>
+                            <div className="flex items-center gap-3">
+                                <DoorOpen size={18} className={team.stats.hasMostDoors ? 'text-blue-500' : 'text-slate-200'} />
+                                <span className="text-[11px] font-black uppercase">Meeste Deuren</span>
+                            </div>
+                            {team.stats.hasMostDoors ? (
+                                <span className="font-black text-sm">+2</span>
+                            ) : (
+                                <span className="text-[10px] font-bold opacity-0 group-hover:opacity-100 transition-opacity">
+                                    {team.doorCount}x
+                                </span>
+                            )}
                         </div>
-                      )}
-                      {team.bonus.mostExtinguishers && (
-                        <div className="p-1 rounded bg-red-100 text-red-600" title="Meeste Brandblussers (+3pt)">
-                          <Flame size={14} />
-                        </div>
-                      )}
                     </div>
-                  </td>
-                  <td className="px-2 py-2 text-right">
-                    <span className="text-xl font-black text-slate-800">{team.score}</span>
-                    <span className="text-[9px] font-bold text-slate-400 ml-0.5">pt</span>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+                </div>
+                
+                {/* Details Footer */}
+                <div className="px-5 py-3 border-t border-slate-50 flex justify-between items-center text-[9px] font-bold text-slate-400 uppercase">
+                    <span>Statistieken</span>
+                    <div className="flex gap-2">
+                        <span>R:{team.routeLength}</span>
+                        <span>D:{team.doorCount}</span>
+                        <span>B:{team.extinguisherCount}</span>
+                    </div>
+                </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

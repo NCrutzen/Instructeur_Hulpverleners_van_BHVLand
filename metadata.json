@@ -1,5 +1,5 @@
 {
-  "name": "De hulpverleners van BHV land Dashboard",
-  "description": "Instructeur dashboard voor het BHV spel, inclusief team management, vaardigheden afvinken, vragenlijsten en incident status.",
+  "name": "Instructeursdashboard",
+  "description": "Instructeur dashboard voor het BHV spel, gefocust op incidenten, routes en deurupgrades.",
   "requestFramePermissions": []
 }
