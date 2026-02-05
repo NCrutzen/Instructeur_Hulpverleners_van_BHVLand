@@ -1,5 +1,5 @@
-const CACHE_NAME = 'bhv-land-v2';
-const BASE_PATH = '/Hulpverleners_van_BHVLand/';
+const CACHE_NAME = 'bhv-land-v3';
+const BASE_PATH = '/Instructeur_Hulpverleners_van_BHVLand/';
 
 const urlsToCache = [
   BASE_PATH,
