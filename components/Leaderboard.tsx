@@ -58,15 +58,15 @@ const Leaderboard: React.FC<Props> = ({ teams }) => {
         <div className="flex flex-wrap gap-2">
             <div className="px-3 py-1.5 bg-white border border-slate-200 rounded-xl shadow-sm flex items-center gap-2">
                 <ShieldCheck size={14} className="text-red-500" />
-                <span className="text-[10px] font-black uppercase text-slate-600">Blusser: 3pt per stuk</span>
+                <span className="text-[10px] font-black uppercase text-slate-600 tracking-tight">Blusser: 3pt p/s</span>
             </div>
             <div className="px-3 py-1.5 bg-white border border-slate-200 rounded-xl shadow-sm flex items-center gap-2">
                 <Medal size={14} className="text-orange-500" />
-                <span className="text-[10px] font-black uppercase text-slate-600">Langste Route: +2pt</span>
+                <span className="text-[10px] font-black uppercase text-slate-600 tracking-tight">Lange Route: +2pt</span>
             </div>
             <div className="px-3 py-1.5 bg-white border border-slate-200 rounded-xl shadow-sm flex items-center gap-2">
                 <Medal size={14} className="text-blue-500" />
-                <span className="text-[10px] font-black uppercase text-slate-600">Meeste Deuren: +2pt</span>
+                <span className="text-[10px] font-black uppercase text-slate-600 tracking-tight">Veel Deuren: +2pt</span>
             </div>
         </div>
       </div>
@@ -128,7 +128,7 @@ const Leaderboard: React.FC<Props> = ({ teams }) => {
                         <div className="flex items-center justify-between px-4 py-3 rounded-2xl border bg-slate-50 border-transparent text-slate-700">
                             <div className="flex items-center gap-3">
                                 <ShieldCheck size={18} className="text-red-500" />
-                                <span className="text-[11px] font-black uppercase">{team.extinguisherCount}x Brandblusser</span>
+                                <span className="text-[11px] font-black uppercase">{team.extinguisherCount}x Blusser</span>
                             </div>
                             <span className="font-black text-sm">+{team.stats.extinguisherPoints}</span>
                         </div>
@@ -141,7 +141,7 @@ const Leaderboard: React.FC<Props> = ({ teams }) => {
                         }`}>
                             <div className="flex items-center gap-3">
                                 <Route size={18} className={team.stats.hasLongestRoute ? 'text-orange-500' : 'text-slate-200'} />
-                                <span className="text-[11px] font-black uppercase">Langste Route</span>
+                                <span className="text-[11px] font-black uppercase font-serif">Langste Route</span>
                             </div>
                             {team.stats.hasLongestRoute ? (
                                 <span className="font-black text-sm">+2</span>
@@ -160,7 +160,7 @@ const Leaderboard: React.FC<Props> = ({ teams }) => {
                         }`}>
                             <div className="flex items-center gap-3">
                                 <DoorOpen size={18} className={team.stats.hasMostDoors ? 'text-blue-500' : 'text-slate-200'} />
-                                <span className="text-[11px] font-black uppercase">Meeste Deuren</span>
+                                <span className="text-[11px] font-black uppercase font-serif">Meeste Deuren</span>
                             </div>
                             {team.stats.hasMostDoors ? (
                                 <span className="font-black text-sm">+2</span>

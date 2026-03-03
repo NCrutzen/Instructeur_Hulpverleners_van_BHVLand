@@ -42,305 +42,489 @@ export const INCIDENT_REWARDS: Resource[] = ['samenwerking', 'kennis'];
 export const CHALLENGE_INCIDENTS = [
   {
     id: 1,
-    title: "Plotselinge instorting in de kantoortuin",
-    scenario: "Een collega zakt tijdens het koffiehalen plotseling in elkaar. Hij reageert niet op aanspreken of schudden.",
+    title: "Bewustzijnscontrole",
+    scenario: "Je ziet een collega plotseling in elkaar zakken bij het koffiezetapparaat. De omgeving is veilig en je bent direct bij het slachtoffer.",
     q1: {
-      question: "Wat is je eerste actie nadat je hebt vastgesteld dat het slachtoffer bewusteloos is?",
-      options: ["Direct beginnen met 30 borstcompressies", "De luchtweg vrijmaken en 10 seconden de ademhaling controleren", "De AED ophalen en de elektroden direct op de kleding plakken"],
-      correctAnswer: "De luchtweg vrijmaken en 10 seconden de ademhaling controleren"
+      question: "Wat is de meest correcte en volledige methode om het bewustzijn vast te stellen bij dit slachtoffer?",
+      options: [
+        "Je schudt voorzichtig aan de schouders, vraagt luid \"Gaat het?\" en geeft tegelijkertijd een pijnprikkel door stevig in de monnikskapspier (schouder/nek) te knijpen.",
+        "Je spreekt het slachtoffer luid aan, schudt voorzichtig aan de schouders en observeert direct of er sprake is van enige verbale of motorische reactie.",
+        "Je tikt het slachtoffer aan, vraagt \"Wat is er gebeurd?\" en voert direct de kinlift uit om te zien of de ogen openslaan."
+      ],
+      correctAnswer: "Je spreekt het slachtoffer luid aan, schudt voorzichtig aan de schouders en observeert direct of er sprake is van enige verbale of motorische reactie."
     },
     q2: {
-      question: "Je stelt vast dat er geen ademhaling is. Wat zeg je tegen de persoon die de AED gaat halen?",
-      options: ["Haal de AED en activeer hem pas als ik moe word", "Haal de AED, zet hem aan en volg de gesproken instructies direct op", "Haal de AED en wacht met aansluiten tot de ambulance er is"],
-      correctAnswer: "Haal de AED, zet hem aan en volg de gesproken instructies direct op"
+      question: "De collega reageert niet, maar ademt wel normaal. Wat is de vervolgstap?",
+      options: [
+        "Je belt (of laat bellen) direct 112, meldt een bewusteloos slachtoffer met normale ademhaling en legt het slachtoffer vervolgens in de stabiele zijligging.",
+        "Je controleert eerst gedurende maximaal 10 seconden de halsslagader om circulatie te bevestigen voordat je het slachtoffer in de stabiele zijligging legt.",
+        "Je laat direct een AED halen en sluit deze aan (\"Stand-by mode\"), zodat je direct kunt handelen mocht de ademhaling alsnog stoppen."
+      ],
+      correctAnswer: "Je belt (of laat bellen) direct 112, meldt een bewusteloos slachtoffer met normale ademhaling en legt het slachtoffer vervolgens in de stabiele zijligging."
     }
   },
   {
     id: 2,
-    title: "Gevallen fietser op het parkeerterrein",
-    scenario: "Een collega is van zijn fiets gevallen op het natte terrein. Hij ligt op zijn buik en reageert niet.",
+    title: "Gebruik van de AED",
+    scenario: "Tijdens een reanimatie brengt een omstander de AED. Je bent op dat moment bezig met de borstcompressies.",
     q1: {
-      question: "Je wilt de ademhaling controleren, maar hij ligt op zijn buik. Wat doe je?",
-      options: ["Ademhaling controleren op de rug", "Het slachtoffer van buik naar rug draaien om de ademhaling te beoordelen", "Laten liggen en wachten op hulpdiensten om nekletsel te voorkomen"],
-      correctAnswer: "Het slachtoffer van buik naar rug draaien om de ademhaling te beoordelen"
+      question: "Zodra de AED naast het slachtoffer wordt geplaatst, wat is de meest kritieke eerste handeling om de kans op een succesvolle defibrillatie te maximaliseren?",
+      options: [
+        "Je stopt de reanimatie onmiddellijk om de borstkas vrij te maken van kleding en eventueel vocht, zodat de elektroden direct contact maken.",
+        "Je zet het apparaat aan en ontbloot de borstkas van het slachtoffer pas op het moment dat de gesproken instructies hier specifiek om vragen.",
+        "Je zet het apparaat direct aan terwijl de tweede hulpverlener de borstcompressies continu voortzet tot het moment van de automatische ritme-analyse."
+      ],
+      correctAnswer: "Je zet het apparaat direct aan terwijl de tweede hulpverlener de borstcompressies continu voortzet tot het moment van de automatische ritme-analyse."
     },
     q2: {
-      question: "Het slachtoffer ademt normaal maar blijft bewusteloos. Wat is de juiste vervolgstap?",
-      options: ["Laten liggen op de rug en warm toedekken", "Het slachtoffer in de stabiele zijligging leggen", "Direct beginnen met reanimatie voor de zekerheid"],
-      correctAnswer: "Het slachtoffer in de stabiele zijligging leggen"
+      question: "De AED heeft de analyse voltooid en geeft aan: \"Schok geadviseerd. Apparaat wordt opgeladen. Raak het slachtoffer niet aan.\" Wat is op dit specifieke moment de juiste procedure?",
+      options: [
+        "Je houdt de kinlift (luchtweg) van het slachtoffer vast om te voorkomen dat de tong de luchtweg blokkeert tijdens de schok, maar raakt de rest van het lichaam niet aan.",
+        "Je roept luid \"Iedereen afstand!\", controleert visueel of niemand (inclusief jijzelf) fysiek contact heeft met het slachtoffer en drukt pas op de knop als de omgeving veilig is.",
+        "Je gaat door met de borstcompressies tijdens het opladen van de AED en stopt pas op de seconde dat de schokknop oplicht om de 'hands-off time' zo kort mogelijk te houden."
+      ],
+      correctAnswer: "Je roept luid \"Iedereen afstand!\", controleert visueel of niemand (inclusief jijzelf) fysiek contact heeft met het slachtoffer en drukt pas op de knop als de omgeving veilig is."
     }
   },
   {
     id: 3,
-    title: "Verwardheid bij de lunch",
-    scenario: "Een collega met diabetes wordt plotseling erg zweterig, trillerig en begint wartaal uit te slaan.",
+    title: "Ernstig letsel in het magazijn",
+    scenario: "Een collega valt van een trap. Je treft het slachtoffer aan met een open botbreuk aan het onderbeen: er is sprake van een uitstekend botdeel.",
     q1: {
-      question: "Waar duiden deze symptomen waarschijnlijk op?",
-      options: ["Hyperglykemie (te hoge bloedsuiker)", "Hypoglykemie (te lage bloedsuiker)", "Beginnend hartinfarct"],
-      correctAnswer: "Hypoglykemie (te lage bloedsuiker)"
+      question: "Je bereidt de verzorging van de wond voor terwijl je wacht op de ambulance. Wat is de juiste procedure voor het behandelen van het zichtbare botdeel?",
+      options: [
+        "Je dekt het botdeel en de wond steriel af met een niet-verklevend kompres of snelverband, waarbij je de drukplekken van het verband naast het botdeel plaatst om verschuiving te voorkomen.",
+        "Je brengt een stevig drukkend wonddrukverband aan over het botstuk heen om te voorkomen dat er alsnog een secundaire bloeding ontstaat tijdens het vervoer.",
+        "Je reinigt het uitstekende botstuk voorzichtig met water of een ontsmettingsmiddel om te voorkomen dat bacteriën bij de eerste de beste beweging dieper de wond in gaan."
+      ],
+      correctAnswer: "Je dekt het botdeel en de wond steriel af met een niet-verklevend kompres of snelverband, waarbij je de drukplekken van het verband naast het botdeel plaatst om verschuiving te voorkomen."
     },
     q2: {
-      question: "Welke eerste hulp verleen je direct?",
-      options: ["Laten liggen en een glas water geven", "Direct extra insuline toedienen", "Suikerhoudende drank of druivensuiker tabletten geven"],
-      correctAnswer: "Suikerhoudende drank of druivensuiker tabletten geven"
+      question: "Je hebt de wond afgedekt en professionele hulp is onderweg. Hoe ga je nu verder te werk wat betreft de verzorging van het letsel?",
+      options: [
+        "Je immobiliseert het onderbeen door steun te geven in de positie waarin je het been aantrof.",
+        "Je legt een noodspalk aan met behulp van harde materialen om de breukdelen volledig te fixeren.",
+        "Je voert een controle uit van de bloedcirculatie nabij van de breuk (zoals de kleur en temperatuur van de voet) en herhaalt deze controle regelmatig tot de ambulance arriveert."
+      ],
+      correctAnswer: "Je immobiliseert het onderbeen door steun te geven in de positie waarin je het been aantrof."
     }
   },
   {
     id: 4,
-    title: "Ongeval in het magazijn",
-    scenario: "Een zware doos is op het onderbeen van een medewerker gevallen. Er is een standsafwijking zichtbaar.",
+    title: "Diabetes op de werkvloer",
+    scenario: "Een bezoeker met diabetes wordt plotseling erg zweterig, trillerig en gedraagt zich verward. Hij is nog wel in staat om te praten en te slikken.",
     q1: {
-      question: "Welke combinatie van letsels vermoed je hier?",
-      options: ["Kneuzing en hartklachten", "Botbreuk en beginnende shock", "Verstuiking en flauwte"],
-      correctAnswer: "Botbreuk en beginnende shock"
+      question: "Je twijfelt of de bezoeker een te lage bloedsuikerspiegel (hypo) of een te hoge bloedsuikerspiegel (hyper) heeft. Wat is de juiste handelwijze?",
+      options: [
+        "Je probeert eerst vast te stellen of de bezoeker een acetonlucht (zoete appeltjes) uitademt; is dit niet het geval, dan ga je er altijd vanuit dat het een 'hypo' is.",
+        "Bij twijfel behandel je het slachtoffer altijd als een 'hypo' door suikers toe te dienen, omdat een 'hypo' op korte termijn veel gevaarlijker is dan een 'hyper'.",
+        "Je dient geen suikers toe zolang je het niet zeker weet, maar laat de bezoeker veel water drinken om een eventueel suikeroverschot te verdunnen."
+      ],
+      correctAnswer: "Bij twijfel behandel je het slachtoffer altijd als een 'hypo' door suikers toe te dienen, omdat een 'hypo' op korte termijn veel gevaarlijker is dan een 'hyper'."
     },
     q2: {
-      question: "Hoe behandel je het been van dit slachtoffer?",
-      options: ["Het been proberen recht te zetten", "Immobiliseren in de positie waarin je het aantreft", "Laten rondlopen voor de doorbloeding"],
-      correctAnswer: "Immobiliseren in de positie waarin je het aantreft"
+      question: "Je besluit de bezoeker suikers aan te bieden. Waar moet je specifiek op letten?",
+      options: [
+        "Je dient de suikers alleen toe als de bezoeker nog zelfstandig kan slikken en houdt de bezoeker nauwlettend in de gaten; bij verslechtering van het bewustzijn stop je direct.",
+        "Je helpt de bezoeker door de vloeistof voorzichtig in kleine slokjes in de mond te gieten.",
+        "Je adviseert de bezoeker om direct na de suikers ook een extra eenheid insuline te spuiten."
+      ],
+      correctAnswer: "Je dient de suikers alleen toe als de bezoeker nog zelfstandig kan slikken en houdt de bezoeker nauwlettend in de gaten; bij verslechtering van het bewustzijn stop je direct."
     }
   },
   {
     id: 5,
-    title: "Brandmelding technische ruimte",
-    scenario: "Het brandalarm gaat af. Er komt rook onder de deur van de technische ruimte vandaan.",
+    title: "Brandmelding en voorzieningen",
+    scenario: "Het brandalarm gaat af. Je begeeft je naar de brandmeldcentrale (BMC) en ziet een melding in de serverruimte. Je gaat op verkenning uit.",
     q1: {
-      question: "Wat is de functie van een nevenindicator bij de deur?",
-      options: ["Geeft aan hoeveel mensen er binnen zijn", "Gaat branden als er in die ruimte een brandmelder is afgegaan", "Meet de temperatuur in de ruimte"],
-      correctAnswer: "Gaat branden als er in die ruimte een brandmelder is afgegaan"
+      question: "Boven de gesloten deur van de serverruimte brandt een rood lampje (nevenindicator). Wat is de primaire functie hiervan?",
+      options: [
+        "Het geeft aan dat de automatische blusgasinstallatie in de achterliggende ruimte reeds is geactiveerd.",
+        "Het dient als waarschuwing dat de stroomvoorziening in de serverruimte automatisch is uitgeschakeld.",
+        "Het stelt je in staat om snel de brandhaard te lokaliseren zonder de deur te hoeven openen."
+      ],
+      correctAnswer: "Het stelt je in staat om snel de brandhaard te lokaliseren zonder de deur te hoeven openen."
     },
     q2: {
-      question: "Je ziet rook. Wat is de veiligste actie?",
-      options: ["Deur openen om te kijken hoe groot de brand is", "Deur gesloten houden, brandweer informeren en ontruiming starten", "Met een natte doek naar binnen gaan om te blussen"],
-      correctAnswer: "Deur gesloten houden, brandweer informeren en ontruiming starten"
+      question: "De serverruimte is beveiligd met een automatische blusgasinstallatie. Wat moet de BHV'er doen?",
+      options: [
+        "De ruimte direct betreden om te kijken waar de rook vandaan komt.",
+        "De ruimte niet betreden en wachten tot de brandweer de ruimte veilig heeft verklaard.",
+        "De ventilatie in het hele gebouw maximaal aanzetten."
+      ],
+      correctAnswer: "De ruimte niet betreden en wachten tot de brandweer de ruimte veilig heeft verklaard."
     }
   },
   {
     id: 6,
-    title: "Splinter in het oog",
-    scenario: "Een medewerker krijgt een metalen splinter in zijn oog en begint hard te wrijven.",
+    title: "Diepe snijwond met actieve bloeding",
+    scenario: "Een collega snijdt zich aan een glasscherf. Het bloed is helderrood en spuit pulserend uit de wond aan de onderarm.",
     q1: {
-      question: "Wat is je eerste instructie aan het slachtoffer?",
-      options: ["Blijf goed wrijven", "Stop direct met wrijven in het oog", "Spoelen met een harde straal kraanwater"],
-      correctAnswer: "Stop direct met wrijven in het oog"
+      question: "Wat is jouw allereerste handeling om het levensbedreigende bloedverlies te beperken?",
+      options: [
+        "Je brengt direct een tourniquet aan op de bovenarm.",
+        "Je oefent onmiddellijk krachtige, directe druk uit op de wond met je handen.",
+        "Je legt de arm van het slachtoffer zo laag mogelijk om de bloeddruk te verlagen."
+      ],
+      correctAnswer: "Je oefent onmiddellijk krachtige, directe druk uit op de wond met je handen."
     },
     q2: {
-      question: "Hoe verleen je verder hulp bij een vastzittend voorwerp in het oog?",
-      options: ["Splinter verwijderen met een pincet", "Beide ogen afdekken en verwijzen naar een arts", "Heel hard laten knipperen"],
-      correctAnswer: "Beide ogen afdekken en verwijzen naar een arts"
+      question: "Je start met het aanleggen van een wonddrukverband. Wanneer is dit verband correct aangelegd?",
+      options: [
+        "Als het verband zo strak zit dat de polsslag niet meer voelbaar is.",
+        "Als je een tweede, koude laag aanbrengt om de stolling te bevorderen.",
+        "Als de actieve bloeding is gestelpt."
+      ],
+      correctAnswer: "Als de actieve bloeding is gestelpt."
     }
   },
   {
     id: 7,
-    title: "Pijn op de borst",
-    scenario: "Een bezoeker krijgt drukkende pijn op de borst, uitstralend naar de kaken. Hij ziet lijkbleek.",
+    title: "Oogletsel door chemicaliën",
+    scenario: "Tijdens werkzaamheden spat er een bijtende ontstopper (base/loog) in het rechteroog van een medewerker.",
     q1: {
-      question: "Wat is de beste houding voor dit slachtoffer?",
-      options: ["Plat op de rug met benen omhoog", "Stabiele zijligging", "Halfzittende houding met steun in de rug"],
-      correctAnswer: "Halfzittende houding met steun in de rug"
+      question: "Wat is de juiste richtlijn voor de tijdsduur en de nazorg bij een bijtende stof?",
+      options: [
+        "Je spoelt het oog gedurende 10 minuten intensief en dekt het oog daarna luchtdicht af.",
+        "Je spoelt het oog minimaal 15 tot 20 minuten onafgebroken met lauw stromend water en schakelt professionele hulp in.",
+        "Je spoelt het oog kortstondig (ca. 5 minuten) totdat de pH-waarde is geneutraliseerd."
+      ],
+      correctAnswer: "Je spoelt het oog minimaal 15 tot 20 minuten onafgebroken met lauw stromend water en schakelt professionele hulp in."
     },
     q2: {
-      question: "De pijn trekt na 15 minuten niet weg. Waar moet je rekening mee houden?",
-      options: ["Onschuldige hyperventilatie", "Dit kan wijzen op een hartinfarct; bel 112", "Typische hypo bij diabetes"],
-      correctAnswer: "Dit kan wijzen op een hartinfarct; bel 112"
+      question: "Hoe voer je de spoeling technisch correct uit om verspreiding te voorkomen?",
+      options: [
+        "Je spoelt met een zachte straal van de neus af naar de buitenkant van het gezicht.",
+        "Je richt een krachtige straal direct op de pupil om de stof onder de oogleden vandaan te spuiten.",
+        "Je laat het slachtoffer het hoofd achterover kantelen en giet het water recht van boven op de neusrug."
+      ],
+      correctAnswer: "Je spoelt met een zachte straal van de neus af naar de buitenkant van het gezicht."
     }
   },
   {
     id: 8,
-    title: "Diepe snijwond met glas",
-    scenario: "Een schoonmaker snijdt zich diep aan een kapotte vaas. Er zit nog glas in de wond.",
+    title: "Brandpreventie in het gebouw",
+    scenario: "Je ziet dat een collega een stoel tussen een zelfsluitende branddeur heeft gezet om een gang te ventileren.",
     q1: {
-      question: "Hoe handel je met betrekking tot het stuk glas in de wond?",
-      options: ["Glas direct verwijderen", "Glas laten zitten en stabiliseren met verband", "Hard op het glas drukken om bloeden te stoppen"],
-      correctAnswer: "Glas laten zitten en stabiliseren met verband"
+      question: "Wat is de meest kritieke reden waarom deze deur direct gesloten moet worden bij een beginnende brand?",
+      options: [
+        "Branddeuren zijn primair ontworpen om de verspreiding van giftige rook te beperken.",
+        "De deur fungeert als een luchtsluis die voorkomt dat de overdrukinstallatie ontregelt raakt.",
+        "Als een branddeur te lang openstaat, vervalt de brandwerendheid van het materiaal."
+      ],
+      correctAnswer: "Branddeuren zijn primair ontworpen om de verspreiding van giftige rook te beperken."
     },
     q2: {
-      question: "Hoe dek je deze wond af?",
-      options: ["Kleine pleister opplakken", "Wond rondom opvullen met gazen en drukverband aanleggen (niet op glas drukken)", "Spoelen met desinfectiemiddel terwijl glas erin zit"],
-      correctAnswer: "Wond rondom opvullen met gazen en drukverband aanleggen (niet op glas drukken)"
+      question: "Het gebouw is opgedeeld in brandcompartimenten (bijv. 60 min). Wat betekent dit voor jouw tactiek?",
+      options: [
+        "Je moet de deuren naar het brandende compartiment zo snel mogelijk sluiten.",
+        "Je hebt gegarandeerd 60 minuten de tijd om iedereen uit het brandende compartiment te halen.",
+        "Compartimentering is enkel bedoeld voor de brandweer; voor de BHV is de enige grens de buitendeur."
+      ],
+      correctAnswer: "Je moet de deuren naar het brandende compartiment zo snel mogelijk sluiten."
     }
   },
   {
     id: 9,
-    title: "Chemische spatten",
-    scenario: "In het lab spat er een bijtende vloeistof in het gezicht en oog van een laborant.",
+    title: "Shock na een ongeval",
+    scenario: "Een medewerker is bekneld geraakt onder een palletwagen. Het slachtoffer heeft een grauwe huidskleur en voelt klam aan.",
     q1: {
-      question: "Hoe lang moet je het oog minimaal spoelen?",
-      options: ["Maximaal 2 minuten", "Minimaal 15 tot 20 minuten met lauw water", "Tot de pijn weg is"],
-      correctAnswer: "Minimaal 15 tot 20 minuten met lauw water"
+      question: "Hoe onderscheid je deze levensbedreigende shocktoestand van een relatief onschuldige flauwte?",
+      options: [
+        "Bij een flauwte wordt de hartslag tijdelijk traag en herstelt men snel plat liggend; bij shock blijft de hartslag hoog en verslechtert de toestand.",
+        "Bij een shock zal het slachtoffer altijd het bewustzijn verliezen binnen 2 minuten.",
+        "Het belangrijkste verschil is de lichaamstemperatuur; shock geeft altijd hoge koorts."
+      ],
+      correctAnswer: "Bij een flauwte wordt de hartslag tijdelijk traag en herstelt men snel plat liggend; bij shock blijft de hartslag hoog en verslechtert de toestand."
     },
     q2: {
-      question: "In welke richting spoel je het oog om het andere oog te beschermen?",
-      options: ["Van de neus af, naar de buitenkant", "Van de buitenkant naar de neus toe", "Maakt niet uit"],
-      correctAnswer: "Van de neus af, naar de buitenkant"
+      question: "Het slachtoffer klaagt over extreme dorst. Waarom mag je niets te drinken geven?",
+      options: [
+        "Het drinken van water kan de bloedsuikerspiegel verder verstoren.",
+        "Bij shock ligt de spijsvertering stil en is de kans op braken groot; dit kan de luchtwegen blokkeren bij bewusteloosheid.",
+        "Water verdunt het resterende bloed, waardoor het zuurstoftransport nog verder afneemt."
+      ],
+      correctAnswer: "Bij shock ligt de spijsvertering stil en is de kans op braken groot; dit kan de luchtwegen blokkeren bij bewusteloosheid."
     }
   },
   {
     id: 10,
-    title: "Val van een keukentrapje",
-    scenario: "Iemand valt en landt ongelukkig op zijn pols. Deze wordt snel dik en blauw.",
+    title: "Rook in het trappenhuis",
+    scenario: "Tijdens een controleronde ontdek je rookontwikkeling in een centraal trappenhuis dat dienstdoet als hoofdvluchtweg.",
     q1: {
-      question: "Welke regel pas je toe bij vermoeden van verstuiking?",
-      options: ["ABC-regel", "ICE-regel (Immobiliseren, Koelen, Elevatie)", "30:2-regel"],
-      correctAnswer: "ICE-regel (Immobiliseren, Koelen, Elevatie)"
+      question: "Welk type melder is hier het meest effectief voor vroege detectie van smeulbranden?",
+      options: [
+        "Een thermische melder; deze reageert pas boven de 60 graden.",
+        "Een optische rookmelder; deze reageert snel op zichtbare rookdeeltjes.",
+        "Een vlammenmelder; deze scant op infraroodstraling."
+      ],
+      correctAnswer: "Een optische rookmelder; deze reageert snel op zichtbare rookdeeltjes."
     },
     q2: {
-      question: "Hoe lang moet je de pols koelen?",
-      options: ["Ongeveer 10 tot 20 minuten", "Minimaal een uur onafgebroken", "Alleen de eerste 2 minuten"],
-      correctAnswer: "Ongeveer 10 tot 20 minuten"
+      question: "De brand is niet meer met kleine middelen te bestrijden. Wat is je belangrijkste tactische handeling?",
+      options: [
+        "Je sluit alle deuren naar het trappenhuis en start de ontruiming via alternatieve vluchtwegen.",
+        "Je houdt de deuren naar de gangen juist open om de rookdruk in het trappenhuis te verlagen.",
+        "Je activeert de handbrandmelder opnieuw om het volume van het alarm te verhogen."
+      ],
+      correctAnswer: "Je sluit alle deuren naar het trappenhuis en start de ontruiming via alternatieve vluchtwegen."
     }
   },
   {
     id: 11,
-    title: "Sprinkleractivatie in de garage",
-    scenario: "Er is een kleine autobrand in de parkeergarage. De sprinkler gaat af.",
+    title: "AED op een metalen vloer",
+    scenario: "In een fabriekshal met een metalen roostervloer tref je een slachtoffer aan met een circulatiestilstand.",
     q1: {
-      question: "Wat zorgt er normaal voor dat een sprinklerkop gaat sproeien?",
-      options: ["Detectie van rook", "Hitte die een glazen buisje of smeltzekering doet breken", "Indrukken van handbrandmelder"],
-      correctAnswer: "Hitte die een glazen buisje of smeltzekering doet breken"
+      question: "Wat is het juiste veiligheidsprotocol voor het toedienen van een schok op een metalen ondergrond?",
+      options: [
+        "Het gebruik van de AED is veilig, omdat de stroom alleen tussen de elektroden over de borstkas loopt.",
+        "Je moet het slachtoffer eerst naar een niet-geleidende ondergrond verplaatsen.",
+        "De schok mag alleen worden toegediend als de BHV'er en het slachtoffer volledig geïsoleerd zijn."
+      ],
+      correctAnswer: "Het gebruik van de AED is veilig, omdat de stroom alleen tussen de elektroden over de borstkas loopt."
     },
     q2: {
-      question: "Wat is het effect van de sprinkler op de brand?",
-      options: ["Blust altijd de volledige brand binnen 10 seconden", "Beheerst de brand en beperkt uitbreiding tot de brandweer er is", "Zorgt dat rook uit het gebouw wordt gezogen"],
-      correctAnswer: "Beheerst de brand en beperkt uitbreiding tot de brandweer er is"
+      question: "Wat doe je als de borstkas van het slachtoffer erg behaard is?",
+      options: [
+        "De elektroden over het haar heen plakken.",
+        "Het haar op de plakplaatsen wegscheren met het mesje uit de AED-set.",
+        "Geen AED gebruiken en alleen borstcompressies geven."
+      ],
+      correctAnswer: "Het haar op de plakplaatsen wegscheren met het mesje uit de AED-set."
     }
   },
   {
     id: 12,
-    title: "Schaafwond op knokkel",
-    scenario: "Een medewerker heeft een schaafwond op de wijsvinger door het stoten tegen een stelling.",
+    title: "Verstikking",
+    scenario: "Tijdens de kerstlunch verslikt een collega zich in een stuk vlees. Hij kan niet meer praten en loopt blauw aan.",
     q1: {
-      question: "Welk hulpmiddel is het meest geschikt voor dit gewricht?",
-      options: ["Normale pleister strak eromheen", "Pleisterkaart met inkepingen voor beweging", "Steriel gaas met schilderstape"],
-      correctAnswer: "Pleisterkaart met inkepingen voor beweging"
+      question: "Welke handeling voer je als eerste uit?",
+      options: [
+        "5 rugslagen tussen de schouderbladen.",
+        "Direct 30 borstcompressies.",
+        "De buikstoten (Heimlich)."
+      ],
+      correctAnswer: "5 rugslagen tussen de schouderbladen."
     },
     q2: {
-      question: "Waarom is het belangrijk om de wond eerst te reinigen?",
-      options: ["Zodat de pleister niet loslaat", "Om infecties te voorkomen", "Om de kleur beter te kunnen zien"],
-      correctAnswer: "Om infecties te voorkomen"
+      question: "Het slachtoffer verliest het bewustzijn en zakt in elkaar. Wat doe je nu?",
+      options: [
+        "Doorgaan met de buikstoten op de grond.",
+        "112 bellen en direct de reanimatie starten.",
+        "Het slachtoffer in de stabiele zijligging leggen."
+      ],
+      correctAnswer: "112 bellen en direct de reanimatie starten."
     }
   },
   {
     id: 13,
-    title: "Ernstige bloeding en shock",
-    scenario: "Een collega heeft een slagaderlijke bloeding aan zijn bovenarm. Hij wordt suf.",
+    title: "Gebouwvoorzieningen (Sprinkler)",
+    scenario: "In een archiefruimte is brand ontstaan. De hitte stijgt op naar het plafond.",
     q1: {
-      question: "Wat is je prioriteit bij dit slachtoffer?",
-      options: ["Geruststellen en deken halen", "Direct de bloeding stelpen door krachtige druk", "Stabiele zijligging"],
-      correctAnswer: "Direct de bloeding stelpen door krachtige druk"
+      question: "Gaan alle sprinklers in het hele gebouw nu tegelijkertijd af?",
+      options: [
+        "Ja, dat is het systeem.",
+        "Nee, alleen de sprinklerkoppen die door de hitte van de brand worden geactiveerd.",
+        "Alleen de sprinklers op dezelfde verdieping."
+      ],
+      correctAnswer: "Nee, alleen de sprinklerkoppen die door de hitte van de brand worden geactiveerd."
     },
     q2: {
-      question: "Waarom leg je een slachtoffer met shock plat neer?",
-      options: ["Zodat hij niet wegloopt", "Bloedtoevoer naar vitale organen ondersteunen", "Makkelijker drukverband aanleggen"],
-      correctAnswer: "Bloedtoevoer naar vitale organen ondersteunen"
+      question: "Wat is de functie van de vloeistof in het glazen buisje van de sprinkler?",
+      options: [
+        "Het detecteert rook.",
+        "Het zet uit door warmte, waardoor het buisje knapt en het water vrijkomt.",
+        "Het dooft het vuur met chemische gassen."
+      ],
+      correctAnswer: "Het zet uit door warmte, waardoor het buisje knapt en het water vrijkomt."
     }
   },
   {
     id: 14,
-    title: "Rookmelder in de kantine",
-    scenario: "In de kantine hangt een rookmelder die afgaat door aangebrand brood.",
+    title: "Reanimatie wissel",
+    scenario: "Je reanimeert samen met een andere BHV'er. De AED is aangesloten.",
     q1: {
-      question: "Hoe reageert een optische rookmelder?",
-      options: ["Onderbreking van lichtstraal door rookdeeltjes", "Chemische samenstelling van verbrand brood", "Snelle stijging van temperatuur"],
-      correctAnswer: "Onderbreking van lichtstraal door rookdeeltjes"
+      question: "Wanneer is het beste moment om van reanimator te wisselen?",
+      options: [
+        "Zodra de AED het hartritme gaat analyseren (elke 2 minuten).",
+        "Na elke 30 borstcompressies.",
+        "Alleen als de ambulancebroeder het vraagt."
+      ],
+      correctAnswer: "Zodra de AED het hartritme gaat analyseren (elke 2 minuten)."
     },
     q2: {
-      question: "Wat doe je als BHV'er nadat je vaststelt dat het loos alarm is?",
-      options: ["Batterij eruit halen", "Melding verifiëren en centrale herstellen (resetten)", "Ruimte verlaten en brandweer laten komen"],
-      correctAnswer: "Melding verifiëren en centrale herstellen (resetten)"
+      question: "Waarom is deze wissel na 2 minuten belangrijk?",
+      options: [
+        "Om te voorkomen dat de reanimator vermoeid raakt en de kwaliteit afneemt.",
+        "Omdat de AED anders oververhit raakt.",
+        "Om de andere BHV'er ook een kans te geven."
+      ],
+      correctAnswer: "Om te voorkomen dat de reanimator vermoeid raakt en de kwaliteit afneemt."
     }
   },
   {
     id: 15,
-    title: "Flauwte of meer?",
-    scenario: "Iemand wordt onwel op een warme dag, valt flauw maar komt na 30 seconden weer bij.",
+    title: "Brandwonden op de hand",
+    scenario: "Een collega heeft kokend water over zijn hand gekregen. De huid is rood en pijnlijk.",
     q1: {
-      question: "Wat is de eerste hulp bij een 'gewone' flauwte?",
-      options: ["Direct 112 bellen", "Even laten liggen, daarna langzaam overeind; frisse lucht", "Dwingen zware maaltijd te eten"],
-      correctAnswer: "Even laten liggen, daarna langzaam overeind; frisse lucht"
+      question: "Welke term gebruiken we voor een brandwond waarbij alleen de opperhuid is aangetast?",
+      options: [
+        "Gedeeltelijk.",
+        "Oppervlakkig.",
+        "Volledig."
+      ],
+      correctAnswer: "Oppervlakkig."
     },
     q2: {
-      question: "Wanneer moet je bij een flauwte alsnog hulp inschakelen?",
-      options: ["Als slachtoffer binnen 1 minuut niet bij bewustzijn is", "Altijd", "Alleen als hij dorst heeft"],
-      correctAnswer: "Als slachtoffer binnen 1 minuut niet bij bewustzijn is"
+      question: "Wat is de belangrijkste regel bij het koelen van brandwonden?",
+      options: [
+        "Koelen met ijskoud water uit de vriezer.",
+        "Koelen met lauw, zacht stromend kraanwater.",
+        "De wond insmeren met brandzalf voordat je gaat koelen."
+      ],
+      correctAnswer: "Koelen met lauw, zacht stromend kraanwater."
     }
   },
   {
     id: 16,
-    title: "AED bij nat slachtoffer",
-    scenario: "Iemand wordt uit een vijver gehaald. Hij ademt niet. De AED is er.",
+    title: "Oogzorg (Vuiltje in het oog)",
+    scenario: "Een collega krijgt een vliegje of een loszittend vuiltje in het oog. Het oog is rood en traant.",
     q1: {
-      question: "Wat moet je doen voor je de elektroden plakt?",
-      options: ["Niets", "Borstkas goed droogwrijven", "Wachten tot hij opgedroogd is in de zon"],
-      correctAnswer: "Borstkas goed droogwrijven"
+      question: "Wat mag het slachtoffer absoluut niet doen?",
+      options: [
+        "Knipperen met de ogen.",
+        "In het oog wrijven.",
+        "Naar de grond kijken."
+      ],
+      correctAnswer: "In het oog wrijven."
     },
     q2: {
-      question: "Mag je een AED gebruiken op een metalen ondergrond?",
-      options: ["Nee, levensgevaarlijk", "Ja, mits elektroden metaal niet raken en niemand slachtoffer aanraakt", "Ja, metaal geleidt beter dus is effectiever"],
-      correctAnswer: "Ja, mits elektroden metaal niet raken en niemand slachtoffer aanraakt"
+      question: "Hoe kun je proberen het vuiltje te verwijderen als het op het oogwit zit?",
+      options: [
+        "Met de punt van een schoon zakdoekje naar de neus toe strijken.",
+        "Met een pincet het vuiltje eraf pakken.",
+        "Hard op de oogbol drukken tot het eruit springt."
+      ],
+      correctAnswer: "Met de punt van een schoon zakdoekje naar de neus toe strijken."
     }
   },
   {
     id: 17,
-    title: "Verstikking in de kantine",
-    scenario: "Een collega verslikt zich, kan niet meer hoesten of praten en grijpt naar zijn keel.",
+    title: "Nooduitgangen en vluchtwegen",
+    scenario: "Tijdens een preventieve ronde controleer je of de vluchtwegen vrij zijn en de nooduitgangen functioneren.",
     q1: {
-      question: "Welke handeling voer je als eerste uit?",
-      options: ["5 slagen tussen schouderbladen", "Direct buikstoten uitvoeren", "Groot glas water laten drinken"],
-      correctAnswer: "5 slagen tussen schouderbladen"
+      question: "Aan welke eis moet een nooddeur voldoen?",
+      options: [
+        "Deze moet altijd gesloten blijven worden.",
+        "Deze moet met één handeling zonder sleutel te openen zijn.",
+        "Deze mag alleen geopend worden als de brandweer er is."
+      ],
+      correctAnswer: "Deze moet met één handeling zonder sleutel te openen zijn."
     },
     q2: {
-      question: "Wat doe je als slagen tussen de schouderbladen niet helpen?",
-      options: ["Slagen nog 20 keer herhalen", "Overgaan op maximaal 5 buikstoten", "Direct beginnen met reanimatie"],
-      correctAnswer: "Overgaan op maximaal 5 buikstoten"
+      question: "Wat is de minimale vrije breedte van een vluchtweg?",
+      options: [
+        "Minimaal 85 cm.",
+        "Altijd precies 1 meter.",
+        "Dat maakt niet uit, zolang je er maar zijwaarts doorheen kunt."
+      ],
+      correctAnswer: "Minimaal 85 cm."
     }
   },
   {
     id: 18,
-    title: "Handbrandmelder geactiveerd",
-    scenario: "Iemand heeft in paniek een handbrandmelder ingedrukt bij de uitgang.",
+    title: "Brandblusmiddelen",
+    scenario: "Je ontdekt een beginnende brand in een prullenbak. Je pakt een sproeischuimblusser.",
     q1: {
-      question: "Wat is het directe gevolg?",
-      options: ["Sprinkler gaat overal aan", "Melding naar BMC en meestal ontruimingssignaal (slow-whoop)", "Stroom wordt overal afgesloten"],
-      correctAnswer: "Melding naar BMC en meestal ontruimingssignaal (slow-whoop)"
+      question: "Wat is de eerste handeling bij het activeren van een draagbaar blustoestel?",
+      options: [
+        "De slang op het vuur richten.",
+        "De borgpen eruit trekken.",
+        "De blusser hard op de grond slaan."
+      ],
+      correctAnswer: "De borgpen eruit trekken."
     },
     q2: {
-      question: "Hoe herken je dat een melder is geactiveerd?",
-      options: ["Vlaggetje aan onderkant", "Ruitje ingedrukt/gebroken en vaak gekleurd streepje zichtbaar", "Begint hard te roken"],
-      correctAnswer: "Ruitje ingedrukt/gebroken en vaak gekleurd streepje zichtbaar"
+      question: "Waarom moet je een brand altijd aan de basis (onderkant) blussen?",
+      options: [
+        "Om de brandhaard direct af te dekken of af te koelen.",
+        "Omdat daar de meeste vlammen zitten.",
+        "Omdat het blusmiddel anders wegwaait."
+      ],
+      correctAnswer: "Om de brandhaard direct af te dekken of af te koelen."
     }
   },
   {
     id: 19,
-    title: "Kneuzing of breuk na val",
-    scenario: "Een medewerker valt van een bureau en klaagt over hevige pijn in de enkel. Hij kan er niet op staan.",
+    title: "Meldprocedure",
+    scenario: "Een collega is van een ladder gevallen en buiten bewustzijn. Je belt 112.",
     q1: {
-      question: "Je twijfelt tussen breuk of verstuiking. Hoe behandel je het?",
-      options: ["Als een breuk (immobiliseren en arts)", "Dwingen om te lopen", "Stevige massage geven"],
-      correctAnswer: "Als een breuk (immobiliseren en arts)"
+      question: "Welke combinatie van gegevens is belangrijk voor de centralist?",
+      options: [
+        "Naam, exacte locatie, aard van het incident en toestand van vitale functies.",
+        "Dichtstbijzijnde ziekenhuis en aard van het letsel.",
+        "Exacte locatie en aantal slachtoffers."
+      ],
+      correctAnswer: "Naam, exacte locatie, aard van het incident en toestand van vitale functies."
     },
     q2: {
-      question: "Waarom is 'elevatie' (hoog leggen) belangrijk?",
-      options: ["Zodat hij niet wegloopt", "Bloedtoevoer verminderen om zwelling en pijn te beperken", "Makkelijker foto's maken"],
-      correctAnswer: "Bloedtoevoer verminderen om zwelling en pijn te beperken"
+      question: "Hoe ga je om met de verbinding tijdens het gesprek?",
+      options: [
+        "Je legt de telefoon neer zodra de locatie bekend is.",
+        "Je zet de telefoon op de luidspreker en blijft aan de lijn tot de centralist verbreekt.",
+        "Je verbreekt de verbinding zodra je sirenes hoort."
+      ],
+      correctAnswer: "Je zet de telefoon op de luidspreker en blijft aan de lijn tot de centralist verbreekt."
     }
   },
   {
     id: 20,
-    title: "Reanimatie en vermoeidheid",
-    scenario: "Je bent alleen aan het reanimeren. Er arriveert een tweede BHV'er.",
+    title: "Rookverspreiding en deuren",
+    scenario: "Je hoort een rookmelder in een afgesloten kantoorruimte en ruikt een brandlucht.",
     q1: {
-      question: "Wanneer is het juiste moment om te wisselen?",
-      options: ["Bij uitputting", "Elke 2 minuten (5 cycli van 30:2)", "Nooit"],
-      correctAnswer: "Elke 2 minuten (5 cycli van 30:2)"
+      question: "Hoe controleer je de temperatuur van de deur?",
+      options: [
+        "Je raakt de deurklink kort aan met je vingertoppen.",
+        "Je controleert de deur met de rug van je hand van onder naar boven.",
+        "Je legt beide handpalmen plat tegen het midden van de deur."
+      ],
+      correctAnswer: "Je controleert de deur met de rug van je hand van onder naar boven."
     },
     q2: {
-      question: "De AED zegt: 'Geen schok geadviseerd'. Wat doe je?",
-      options: ["Stoppen en wachten op ambulance", "Ademhaling controleren; indien afwezig doorgaan met 30:2", "AED uitzetten en rechtop zetten"],
-      correctAnswer: "Ademhaling controleren; indien afwezig doorgaan met 30:2"
+      question: "De deur voelt niet warm aan. Hoe voer je de opening technisch correct uit?",
+      options: [
+        "Je opent de deur in één snelle beweging volledig.",
+        "Je plaatst je voet tegen de onderkant en opent de deur op een kleine kier.",
+        "Je vraagt een collega om ramen in de gang open te zetten voor ventilatie."
+      ],
+      correctAnswer: "Je plaatst je voet tegen de onderkant en opent de deur op een kleine kier."
+    }
+  },
+  {
+    id: 21,
+    title: "Wervelletsel (Val van hoogte)",
+    scenario: "Een schilder is van een steiger gevallen. Hij is bij bewustzijn maar heeft hevige rugpijn.",
+    q1: {
+      question: "Waarom benader je het slachtoffer strikt binnen zijn gezichtsveld?",
+      options: [
+        "Dit is de standaardprocedure voor de 'Kinlift-methode'.",
+        "Zodat je direct kunt zien of er sprake is van uitwendige bloedingen.",
+        "Om te voorkomen dat het slachtoffer een reflexmatige hoofdbeweging maakt."
+      ],
+      correctAnswer: "Om te voorkomen dat het slachtoffer een reflexmatige hoofdbeweging maakt."
+    },
+    q2: {
+      question: "Wat is jouw taak bij het stabiliseren van de nek (manuele fixatie)?",
+      options: [
+        "Je dwingt het hoofd met kracht in de neutrale anatomische positie.",
+        "Je fixeert het hoofd voorzichtig in de aangetroffen stand en geeft geruststelling.",
+        "Je legt zware voorwerpen strak tegen beide kanten van het hoofd."
+      ],
+      correctAnswer: "Je fixeert het hoofd voorzichtig in de aangetroffen stand en geeft geruststelling."
     }
   }
 ];
+
 
 export const SKILLS = [
   { id: 'ehbo-1', name: 'Eerste Hulp verlenen' },
