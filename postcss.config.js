@@ -1,6 +1,12 @@
 export default {
   plugins: {
     '@tailwindcss/postcss': {},
-    autoprefixer: {},
+    'postcss-preset-env': {
+      features: {
+        'cascade-layers': true,
+        'oklab-function': true,
+        'color-mix': true,
+      },
+    },
   },
 };
