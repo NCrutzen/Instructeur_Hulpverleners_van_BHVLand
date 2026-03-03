@@ -1,0 +1,5 @@
+{
+  "name": "Instructeursdashboard",
+  "description": "Instructeur dashboard voor het BHV spel, gefocust op incidenten, routes en deurupgrades.",
+  "requestFramePermissions": []
+}
